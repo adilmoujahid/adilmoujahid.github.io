@@ -6,7 +6,7 @@
     <meta name="description" content="Adil Moujahid, Data Analytics and more">
 
 
-        <title>Introduction to Agent-based Models - An Implementation of Schelling Model in Python // Adil Moujahid // Data Analytics and more</title>
+        <title>An Introduction to Agent-based Models: Simulating Segregation with Python // Adil Moujahid // Data Analytics and more</title>
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@
                 <h2 class="article-info">Adil Moujahid</h2>
                 <small class="about-author"></small>
                 <h5>Published</h5>
-                <p>Sun 27 July 2014</p>
+                <p>Sun 24 August 2014</p>
                 <a href="/">&larr;Home</a>
             </hgroup>
         </header>
@@ -42,7 +42,7 @@
         <div class="content">
             <section class="post">
                 <header class="post-header">
-                    <h1>Introduction to Agent-based Models - An Implementation of Schelling Model in Python</h1>
+                    <h1>An Introduction to Agent-based Models: Simulating Segregation with Python</h1>
                         <p class="post-meta">
                             // tags                                 <a class="post-category" href="../../../../tag/python/">python</a>
                                 <a class="post-category" href="../../../../tag/matplotlib/">matplotlib</a>
@@ -50,20 +50,24 @@
                         </p>
                 </header>
             </section>
-            <p>If you look at the racial distribution of multi-ethnic cities, you'll be astonish by the incredible racial segregation. For example, the New York city map below represents the data from the 2010 U.S. Census color-coded by race. You can see see clearly the racial segregation from this map.</p>
-<p>Many would conclude from such phenomena that people are intolerant, and don't want to live next to people that are different from them. In the 70's, Thomas Schelling, the 2005 Economics Nobel Prize winner was interested in this subject and built an agent based model called Schelling segregation model for explaining this phenomenon. With a very simple model, Schelling could show that what we see at the macro level may not in fact represent what's going down in the micro level.</p>
-<p>In this post, I will show how to implement the Schelling model using Python programming language and I will run a few simulations to get a deeper understanding of the segregation phenomena. My goal from this post is to use Schelling model as an example to introduce the benefit and power of agent-based models for understanding complex phenomenons.</p>
+            <p><em>This article was originally published on <a href="https://www.binpress.com/tutorial/introduction-to-agentbased-models-an-implementation-of-schelling-model-in-python/144">Binpress</a></em></p>
+<p>In computer science, agent-based models are used to assess the effects of autonomous agents (i.e. individuals, groups or objects) on an overall system. They're very powerful analytical tools that can be used in situations where experiments aren't feasible or are very expensive to conduct. These models have a wide range of applications in the social sciences, computer science, economics and business.</p>
+<p>In this piece, I'll introduce you to the power of agent-based models when used to understand complex phenomenons. To do this, we'll use some Python, a social science case study and the Schelling model.</p>
+<h1>1. The case study</h1>
+<p>If you look at the racial distribution of multi-ethnic cities, you'll be astonished by the incredible racial segregation. For example, the New York City map below represents data from the 2010 US Census color-coded by race. You can clearly see the racial segregation.</p>
+<p>Many would conclude from such phenomena that people are intolerant, and don't want to live next to people that are different from them. A deeper look, however, might provide some nuance. In the 70's, Thomas Schelling, the 2005 Economics Nobel Prize winner, was interested in this subject and built an agent-based model called the "Schelling segregation model" for explaining this phenomenon. With a very simple model, Schelling could show that what we see at the macro level may not in fact represent what's going down in the micro level.</p>
+<p>We'll run a few simulations using the Schelling model to get a deeper understanding of the segregation phenomena.</p>
 <div style="text-align:left">
 <p><img alt="Alt Text" src="/images/NY_racial_map.jpg" />
 Source: <a href="http://demographics.coopercenter.org/DotMap/index.html">http://demographics.coopercenter.org/DotMap/index.html</a></p>
 </div>
-<h1>1. Schelling Segregation Model: Setting and Definitions</h1>
-<p>Let n be the number of races living in a city. We represent each race by a unique color and we represent the city by a grid where each cell represent a house. A house can be either empty or full. A full house can have have only one person living in it. If the house is empty, we color it in white. If the house is full, we color it by the color of the person living in it.
-We define the neighbours of a person to be the people living in the adjacent houses (Up, Bottom, Left, Right, Up-Left, Up-Right, Bottom-Left, Bottom-Right).
-If the ratio of neighbors of the same race is above a certain threshold (that we call Similarity Threshold), we say that the person is satisfied. If not we say that the person is unsatisfied.</p>
-<p>Schelling simulation goes as follows. We start by randomly putting people in the city and we leave some houses empty. For each person living in the city, we check if he/she is satisfied. If satisfied, we don't do anything. If not, we move the person to an empty house. We run this simulation for a few iterations, and we check the final distribution of the people.</p>
-<h1>2. Python Implementation of Schelling Model</h1>
-<p>Back in the 70s, Schelling used pennies and nickels on a piece of paper for his simulation. We will use Python programming language for building the same.</p>
+<h1>2. Schelling Segregation Model: Setting and Definitions</h1>
+<p>Agent-based models need three parameters: 1) Agents, 2) Behavior (rules) and 3) Metrics at the aggregated level. In the Schelling model, the agents are the people living in the city, the behavior is the house moving based on the similarity ratio and the metrics at the aggregated level is the similarity ratio.</p>
+<p>Let n be the number of races living in a city. We represent each race by a unique color and we represent the city by a grid where each cell represents a house. A house can be either empty or full. A full house can have have only one person living in it. If the house is empty, we color it in white. If the house is full, we color it by the color of the person living in it. We define the neighbors of a person to be the people living in the adjacent houses (Up, Bottom, Left, Right, Up-Left, Up-Right, Bottom-Left, Bottom-Right).</p>
+<p>Schelling's goal was to test what would happen if people had a small preference that their neighbors be of the same color (or even preference for some diversity). If the ratio of neighbors of the same race is above a certain threshold (that we call Similarity Threshold), we say that the person is satisfied. If not, we say that the person is unsatisfied.</p>
+<p>The Schelling simulation goes as follows. We start by randomly putting people in the city and we leave some houses empty. For each person living in the city, we check if he/she is satisfied. If satisfied, we don't do anything. If not, we move the person to an empty house. We run this simulation for a few iterations, and we check the final distribution of the people.</p>
+<h1>3. Python Implementation of Schelling Model</h1>
+<p>Back in the 70s, Schelling used pennies and nickels on a piece of paper for his simulation. We'll use Python for building the same simulation.</p>
 <p>We start by importing the necessary libraries for running the simulations. All libraries except <code>Matplotlib</code> are installed by default in Python. </p>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
@@ -101,7 +105,7 @@ If the ratio of neighbors of the same race is above a certain threshold (that we
 </pre></div>
 
 
-<p>the <code>populate</code> method is used at the beginning of the simulation. This method distributes randomly people in the grid. </p>
+<p>The <code>populate</code> method is used at the beginning of the simulation. This method distributes randomly people in the grid. </p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">populate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">all_houses</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">),</span><span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">)))</span>
     <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">all_houses</span><span class="p">)</span>
@@ -223,7 +227,7 @@ If the ratio of neighbors of the same race is above a certain threshold (that we
 </pre></div>
 
 
-<h1>3. Simulations</h1>
+<h1>4. Simulations</h1>
 <p>Now that we have our implementation of the <code>Schelling</code> class, we can run different simulations and plot the results.  we will build 3 simulations with the following characteristics: </p>
 <ul>
 <li>width = 50, and height = 50 (2500 houses)</li>
@@ -273,7 +277,7 @@ If the ratio of neighbors of the same race is above a certain threshold (that we
 <p><img alt="Alt Text" src="/images/schelling_2_80_final.png" /></p>
 </div>
 <p>Looking at the plots above, we can see that the higher the similarity threshold, the more segregated the city becomes. Furthermore, we can see that even with a small similarity threshold, we get segregated cities. In other words, even if the people are very tolerant (i.e. having a small Similarity threshold), we end up with segregation. We can conclude that what we see at the macro level may not in fact represent what's going down in the micro level.</p>
-<h1>4. Measuring Segregation</h1>
+<h1>5. Measuring Segregation</h1>
 <p>In the simulation above, we used visual representations to confirm the segregation. However, we don't have any quantitative measure for calculating segregation. We will define this measure in this section, and we will run a few simulations to check the relationship between the happiness threshold and the segregation level.</p>
 <p>First we will add a method to the <code>Schelling</code> class called <code>calculate_similarity</code>. This method returns the calculate the similarity ratio for each agent and returns the mean similarity ratio. We will use the mean similarity ratio as a measure of segregation.</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">calculate_similarity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -355,11 +359,9 @@ If the ratio of neighbors of the same race is above a certain threshold (that we
 <p><img alt="Alt Text" src="/images/schelling_segregation_measure.png" /></p>
 </div>
 <p>You can see from the plot above that for very small similarity thresholds, we get very high segregation (defined by the mean similarity ratio). For example, for a similarity threshold of 0.3, we got a mean similarity ratio of 0.75. We could confirm quantitatively that what we see at the macro level may not in fact represent what's going down in the micro level.</p>
-<h1>5. Agent-based models</h1>
-<p>The Schelling model described above is part of a large class of computational models called Agent-based models. Agent-based models are used to assess the effects of autonomous agents (i.e. individuals, groups or objects) on the overall system. These models need 3 parameters: 1) Agents, 2) Behavior (rules), 3) Metrics at the aggregated level. In the Schelling model, the agents are the people living in the city, the behavior is the house moving based on the similarity ratio and the metrics at the aggregated level is the similarity ratio.</p>
-<p>Agent-based models are very powerful analytical tools that can be used in situations in which designing experiments is not feasible or very expensive. These models have a wide range of applications in the social sciences, computer science, economics and business. </p>
-<h1>6. Conclusion</h1>
-<p>In this post, we introduced one example of agent-based models called Schelling segregation model and we implemented the same in the Python programming language. This very simple model helped us understand a very complex phenomena, namely segregation in multi-ethnics cities. We could show that very high segregation level in these cities does not necessarily translate into intolerance at the individual level.</p>
+<h1>6. Wrap-up</h1>
+<p>In this article, we've introduced one example of agent-based models called, the Schelling segregation model, and we implemented it in Python. This very simple model helped us understand a very complex phenomena, namely segregation in multi-ethnics cities. We could show that a very high segregation level in these cities doesn't necessarily translate into intolerance at the individual level.</p>
+<p>All source code from this post can be found in this <a href="https://github.com/adilmoujahid/schelling_simulations">github repository</a></p>
 <h1>References</h1>
 <p>https://www.coursera.org/course/modelthinking</p>
             <div class="hr"></div>
