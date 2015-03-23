@@ -244,6 +244,7 @@ init_mathjax();
                         <p class="post-meta">
                             // tags                                 <a class="post-category" href="/tag/python/">python</a>
                                 <a class="post-category" href="/tag/pandas/">pandas</a>
+                                <a class="post-category" href="/tag/api/">api</a>
                         </p>
                 </header>
             </section>
@@ -263,6 +264,8 @@ init_mathjax();
 <div style="text-align:center" markdown="1">
 <img src="/images/coursera_demo.gif" alt="Alt Text">
 </div>
+
+<p>The source code for this tutorial can be found in this <a href="https://github.com/adilmoujahid/Coursera_Analytics">github repository</a>.</p>
 </div>
 </div>
 </div>
@@ -273,7 +276,7 @@ init_mathjax();
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="1-getting-courses-data">1. Getting courses data</h1>
 <p>Coursera provides an <a href="https://tech.coursera.org/app-platform/catalog/">API</a> for accessing the courses, universities, categories, instructors and sessions data. For this tutorial, we will be using the courses, universities and categories data. </p>
-<p>in a Python shell, we started by importing the 3 following libraries: <code>urllib2</code>, <code>json</code>, and <code>pandas</code>. Both <code>urllib2</code> and <code>json</code> libraries are part of the core python libraries and don&#39;t need to be installed separately.</p>
+<p>in a Python shell, we start by importing the 3 following libraries: <code>urllib2</code>, <code>json</code>, and <code>pandas</code>. Both <code>urllib2</code> and <code>json</code> libraries are part of the core python libraries and don&#39;t need to be installed separately.</p>
 </div>
 </div>
 </div>
@@ -299,13 +302,13 @@ In&nbsp;[1]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Next, we will access the coursera API and download the course catalogue. For each course, we are interested in 3 fields:</p>
+<p>Next, we access the coursera API and download the course catalogue. For each course, we are interested in 3 fields:</p>
 <ul>
 <li><code>shortName</code>: The short name associated with the course.</li>
 <li><code>name</code>: The course name or title.</li>
 <li><code>language</code>: The language code for the course. (e.g. &#39;en&#39; means English.)</li>
 </ul>
-<p>We will also include in the query <code>universities</code> and <code>categories</code> parameters. This will return the ids that matches each course with their corresponding universities and categories. Below are the python commands to do so.</p>
+<p>We also include in the query <code>universities</code> and <code>categories</code> parameters. This will return the ids that matches each course with their corresponding universities and categories. Below are the <code>Python</code> commands to do so.</p>
 </div>
 </div>
 </div>
@@ -331,7 +334,7 @@ In&nbsp;[2]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If we want to get the data about the first course in the <code>courses_data</code> array, we simply execute the command below.</p>
+<p>If we want to get the data about the first course in the <code>courses_data</code> dictionary, we simply execute the command below.</p>
 </div>
 </div>
 </div>
@@ -378,8 +381,8 @@ In&nbsp;[3]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The first course in the <code>courses_data</code> array is &#39;The Land Ethic Reclaimed: Perceptive Hunting, Aldo Leopold, and Conservation&#39;, offered in English by the university with id=65, and under categories 8, 10, 19 and 20.</p>
-<p>Next, we will retrieve the universities and categories data from the Coursera API. For the universities data, we are interested in the university name and its location. </p>
+<p>The first course in the <code>courses_data</code> dictionary is &#39;The Land Ethic Reclaimed: Perceptive Hunting, Aldo Leopold, and Conservation&#39;, offered in English by the university with id=65, and under categories 8, 10, 19 and 20.</p>
+<p>Next, we retrieve the universities and categories data from the Coursera API. For the universities data, we are interested in the university name and its location. </p>
 </div>
 </div>
 </div>
@@ -452,7 +455,7 @@ In&nbsp;[5]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Similarly to get the courses categories data, we execute the following commands.</p>
+<p>Similarly, we can get the courses categories data by executing the following commands.</p>
 </div>
 </div>
 </div>
@@ -1007,7 +1010,7 @@ In&nbsp;[18]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Similarly, we print the university with id 234 to its corresponding name by executing the command below.</p>
+<p>Similarly, we can print the name of the university with id 234 by executing the command below.</p>
 </div>
 </div>
 </div>
@@ -1050,7 +1053,7 @@ In&nbsp;[19]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Next, we will add both the categories and universities name to the <code>courses_df</code> DataFrame.</p>
+<p>Next, we add both the categories and universities name to the <code>courses_df</code> DataFrame.</p>
 </div>
 </div>
 </div>
@@ -1084,7 +1087,7 @@ In&nbsp;[20]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The URL to each Coursera course looks like <code>https://www.coursera.org/course/&lt;shortName&gt;</code>. We will add the URLs to the <code>courses_df</code> DataFrame by executing the command below.</p>
+<p>The URL to each Coursera course looks like <code>https://www.coursera.org/course/&lt;shortName&gt;</code>. We can add the URLs to the <code>courses_df</code> DataFrame by executing the command below.</p>
 </div>
 </div>
 </div>
@@ -1294,7 +1297,7 @@ In&nbsp;[25]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this tutorial, we will only be using the social share count from Twitter, LinkedIn and Facebook, We can add this information to the <code>courses_df</code> DataFrame by executing the commands below.</p>
+<p>In this tutorial, we will be only using the social share count from Twitter, LinkedIn and Facebook, We can add this information to the <code>courses_df</code> DataFrame by executing the commands below.</p>
 </div>
 </div>
 </div>
@@ -1458,7 +1461,7 @@ In&nbsp;[27]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="4-querying-the-data">4. Querying the data</h1>
-<p>Now that we have all Coursera courses with the corresponding number of social shares structured in a <code>Pandas</code> DataFrame, we can write queries that return the top courses for a specific category or languages.</p>
+<p>Now that we have all Coursera courses with the corresponding number of social shares structured in a <code>Pandas</code> DataFrame, we can write queries that return the top courses for a specific category or language.</p>
 <h2 id="4-1-getting-the-top-10-most-popular-english-courses-by-twitter-count">4.1. Getting the top 10 most popular English courses by Twitter count</h2>
 </div>
 </div>
@@ -1763,7 +1766,8 @@ In&nbsp;[29]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="conclusion">Conclusion</h1>
-<p>In this tutorial, we learned how to use the Coursera API to get the courses catalogue and how to use to use the sharedcount.com API to get social shares metrics for each course. The technique introduced in this tutorial can be leveraged to other use cases that requires a popularity ranking system for measuring the relevance of a list of links.</p>
+<p>In this tutorial, we learned how to use the Coursera API to get the courses catalogue and how to use the sharedcount.com API to get social shares metrics for each course. The technique introduced in this tutorial can be leveraged to other use cases that requires a popularity ranking system for measuring the relevance of a list of links.</p>
+<p>The source code for this tutorial can be found in this <a href="https://github.com/adilmoujahid/Coursera_Analytics">github repository</a>.</p>
 </div>
 </div>
 </div></p>
