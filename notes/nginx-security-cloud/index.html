@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Adil Moujahid, Data Analytics and more">
+
+
+
+
+        <title>Using Nginx for deploying and securing applications in the cloud // Adil Moujahid // Data Analytics and more</title>
+
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../theme/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../theme/css/pure.css">
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    <script src="//load.sumome.com/" data-sumo-site-id="4ce3990f4d6fb482b4d97fa9208bd2242f7bb8c711ce30290794390dbe7ed180" async></script>
+
+</head>
+
+<body>
+<div class="pure-g-r" id="layout">
+<div class="sidebar pure-u">
+    <div class="cover-img" style="background-image: url('/images/cover-img.jpg')">
+        <div class="cover-body">
+            <header class="header">
+                <hgroup>
+                    <h1 class="brand-main"><a href="/">Adil Moujahid</a></h1>
+                    <p class="tagline">Data Analytics and more</p>
+                    <p class="links"><a href="../../">Posts</a></p>
+                    <p class="links"><a href="../../projects">Projects</a></p>
+                    <p class="links"><a href="../../notes">Notes</a></p>
+                    <p class="links"><a href="../../about">About</a></p>
+                    <p class="social">
+                        <a href="https://twitter.com/AdilMouja">
+                            <i class="fa fa-twitter fa-3x"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/adilmoujahid/">
+                            <i class="fa fa-linkedin fa-3x"></i>
+                        </a>
+                        <a href="https://github.com/adilmoujahid">
+                            <i class="fa fa-github fa-3x"></i>
+                        </a>
+                    <p>
+                </hgroup>
+            </header>
+        </div>
+    </div>
+</div>    <div class="pure-u-1">
+        <div class="content">
+            <h1 class="content-subhead">Using Nginx for deploying and securing applications in the cloud</h1>
+            <p><h3>1- What is Nginx?</h3>
+<p>Nginx is a:</p>
+<ul>
+<li>Web server: A web server is server software, or a system of one or more computers dedicated to running this software, that can satisfy client HTTP requests on the public World Wide Web or also on private LANs and WANs. <a href="https://en.wikipedia.org/wiki/Web_server">[source]</a></li>
+<li>Reverse proxy: A reverse proxy server is a type of proxy server that typically sits behind the firewall in a private network and directs client requests to the appropriate backend server.<a href="https://www.nginx.com/resources/glossary/reverse-proxy-server/">[source]</a></li>
+<li>Load balancer: A load balancer is a device that acts as a reverse proxy and distributes network or application traffic across a number of servers. Load balancers are used to increase capacity (concurrent users) and reliability of applications. <a href="https://www.f5.com/services/resources/glossary/load-balancer">[source]</a></li>
+<li>Mail proxy: A mail proxy server is a stand-alone machine that is located in front of the actual email server. The mail proxy server is customized to provide any or all of the following services: Web based email via IMAP. Virus scanning. File type blocking. <a href="http://www.real-time.com/linuxsolutions/mailproxy.html">[source]</a></li>
+<li>HTTP cache: Caching is a technique that stores a copy of a given resource and serves it back when requested. <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching">[source]</a></li>
+</ul>
+<h3>2- My use cases for Nginx</h3>
+<ul>
+<li>Nginx as a reverse proxy and load balancer for applications that I’m deploying in cloud platforms (AWS, GCP, Azure, Heroku) </li>
+<li>Using Nginx authentication modules to create an authentication layer that can be used with applications that I’m deploying in cloud platforms.</li>
+</ul>
+<h3>3- Installing Nginx and basic commands</h3>
+<h3>4- Nginx basic configuration</h3>
+<h3>5- Nginx basic authentication</h3>
+<h3>6- Nginx advanced authentication with Python</h3>
+<p>Nginx Cheatsheet: Nginx configurations that developers should know </p>
+<p>https://vishnu.hashnode.dev/nginx-cheatsheet</p></p>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <p>&copy; Adil Moujahid &ndash;
+        Built with <a href="https://github.com/PurePelicanTheme/pure">Pure Theme</a>
+        for <a href="http://blog.getpelican.com/">Pelican</a>
+    </p>
+</footer>    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-52651211-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+    </script>
+</body>
+
+
+</html>
