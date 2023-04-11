@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Adil Moujahid, Data Analytics and more">
+
+
+        
+<style type="text/css">
+pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: var(--jp-cell-editor-active-background) }
+.highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
+.highlight .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */
+.highlight .err { color: var(--jp-mirror-editor-error-color) } /* Error */
+.highlight .k { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword */
+.highlight .o { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator */
+.highlight .p { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation */
+.highlight .ch { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Single */
+.highlight .cs { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Special */
+.highlight .kc { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Type */
+.highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
+.highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
+.highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
+.highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
+.highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
+.highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
+.highlight .mh { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Hex */
+.highlight .mi { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer */
+.highlight .mo { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Oct */
+.highlight .sa { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Affix */
+.highlight .sb { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Backtick */
+.highlight .sc { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Char */
+.highlight .dl { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Delimiter */
+.highlight .sd { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Doc */
+.highlight .s2 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Double */
+.highlight .se { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Escape */
+.highlight .sh { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Heredoc */
+.highlight .si { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Interpol */
+.highlight .sx { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Other */
+.highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
+.highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
+.highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */
+</style>
+
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+div.entry-content {
+  overflow: visible;
+  padding: 8px;
+}
+.input_area {
+  padding: 0.2em;
+}
+
+a.heading-anchor {
+ white-space: normal;
+}
+
+.rendered_html
+code {
+ font-size: .8em;
+}
+
+pre.ipynb {
+  color: black;
+  background: #f7f7f7;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0px;
+  font-size: 13px;
+}
+
+/* remove the prompt div from text cells */
+div.text_cell .prompt {
+    display: none;
+}
+
+/* remove horizontal padding from text cells, */
+/* so it aligns with outer body text */
+div.text_cell_render {
+    padding: 0.5em 0em;
+}
+
+img.anim_icon{padding:0; border:0; vertical-align:middle; -webkit-box-shadow:none; -box-shadow:none}
+
+div.collapseheader {
+    width=100%;
+    background-color:#d3d3d3;
+    padding: 2px;
+    cursor: pointer;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+</style>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true,
+        displayMath: [['$$','$$'], ["\\[","\\]"]]
+    }
+});
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    $("div.collapseheader").click(function () {
+    $header = $(this).children("span").first();
+    $codearea = $(this).children(".input_area");
+    console.log($(this).children());
+    $codearea.slideToggle(500, function () {
+        $header.text(function () {
+            return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+        });
+    });
+});
+});
+</script>
+
+
+
+
+        <title>pandas tag // Adil Moujahid // Data Analytics and more</title>
+
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../theme/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../theme/css/pure.css">
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+    <script src="//load.sumome.com/" data-sumo-site-id="4ce3990f4d6fb482b4d97fa9208bd2242f7bb8c711ce30290794390dbe7ed180" async></script>
+
+</head>
+
+<body>
+<div class="pure-g-r" id="layout">
+<div class="sidebar pure-u">
+    <div class="cover-img" style="background-image: url('/images/cover-img.jpg')">
+        <div class="cover-body">
+            <header class="header">
+                <hgroup>
+                    <h1 class="brand-main"><a href="/">Adil Moujahid</a></h1>
+                    <p class="tagline">Data Analytics and more</p>
+                    <p class="links"><a href="../../">Posts</a></p>
+                    <p class="links"><a href="../../projects">Projects</a></p>
+                    <p class="links"><a href="../../notes">Notes</a></p>
+                    <p class="links"><a href="../../about">About</a></p>
+                    <p class="social">
+                        <a href="https://twitter.com/AdilMouja">
+                            <i class="fa fa-twitter fa-3x"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/adilmoujahid/">
+                            <i class="fa fa-linkedin fa-3x"></i>
+                        </a>
+                        <a href="https://github.com/adilmoujahid">
+                            <i class="fa fa-github fa-3x"></i>
+                        </a>
+                    <p>
+                </hgroup>
+            </header>
+        </div>
+    </div>
+</div>    <div class="pure-u-1">
+        <div class="content">
+            <!-- A wrapper for all the blog posts -->
+            <div class="posts">
+                <h1 class="content-subhead">
+Posts tagged 'pandas'                </h1>
+<section class="post">
+    <header class="post-header">
+        <a href="../../author/adil-moujahid.html" title="See posts by Adil Moujahid">
+                <img class="avatar" alt="Adil Moujahid" src="http://www.gravatar.com/avatar/2ac2a00f5911cc8234778be41c835e13">
+        </a>
+        <h3><a class="post-title" href="../../posts/2022/04/data-analysis-moonbirds-nft-python-alchemy/">In-Depth Analysis of Moonbirds NFTs using Python and Alchemy</a></h3>
+            <p class="post-meta"><p>Moonbirds is the official PFP NFT project of the Proof collective. It consists of 10,000 utility-enabled PFPs that unlock different benefits depending on the traits and the locking period of the Moonbird NFT. In this blog post, we will use Python and Alchemy to do a deep dive analysis of the collection in its first week of trading.</p></p>
+            <p class="post-meta">
+                in <a href="../../category/blockchain">blockchain</a> &middot; Sun 24 April 2022
+                <br>
+                // tags                     <a class="post-category" href="../../tag/python/">python</a>
+                    <a class="post-category" href="../../tag/pandas/">pandas</a>
+                    <a class="post-category" href="../../tag/blockchain/">blockchain</a>
+                    <a class="post-category" href="../../tag/nft/">nft</a>
+            </p>
+    </header>
+</section><section class="post">
+    <header class="post-header">
+        <a href="../../author/adil-moujahid.html" title="See posts by Adil Moujahid">
+                <img class="avatar" alt="Adil Moujahid" src="http://www.gravatar.com/avatar/2ac2a00f5911cc8234778be41c835e13">
+        </a>
+        <h3><a class="post-title" href="../../posts/2021/06/data-mining-meebits-nfts-python-opensea/">Data mining Meebits NFTs using Python and OpenSea API</a></h3>
+            <p class="post-meta"><p>The Meebits NFT collection is the latest project from Larva Lab, the creator of Cryptopunks and Autoglyphs. In this tutorial, we will use Python and OpenSea API to download and analyze the transactions related to Meebits. We will cover how to download Meebits transactions using python and OpenSea API, and we will analyze the data with the goal of understanding sales trends and the behavior of some of the sellers and owners of Meebits.</p></p>
+            <p class="post-meta">
+                in <a href="../../category/blockchain">blockchain</a> &middot; Mon 28 June 2021
+                <br>
+                // tags                     <a class="post-category" href="../../tag/python/">python</a>
+                    <a class="post-category" href="../../tag/pandas/">pandas</a>
+                    <a class="post-category" href="../../tag/blockchain/">blockchain</a>
+                    <a class="post-category" href="../../tag/nft/">nft</a>
+            </p>
+    </header>
+</section><section class="post">
+    <header class="post-header">
+        <a href="../../author/adil-moujahid.html" title="See posts by Adil Moujahid">
+                <img class="avatar" alt="Adil Moujahid" src="http://www.gravatar.com/avatar/2ac2a00f5911cc8234778be41c835e13">
+        </a>
+        <h3><a class="post-title" href="../../posts/2020/04/stocks-analysis-covid19-coronavirus-python/">Analyzing the Impact of Coronavirus on the Stock Market using Python, Google Sheets and Google Finance</a></h3>
+            <p class="post-meta"><p>Since its emergence in Asia late 2019, the coronavirus COVID-19 pandemic has been devastating. The virus spread to most countries causing severe respiratory infections and many human casualties. The virus also put half of the world population in lockdown which resulted in a slowdown of the world economy and a fall in stock prices. The goal of this tutorial is to introduce the steps for collecting and analyzing stock data in the context of the coronavirus pandemic.</p></p>
+            <p class="post-meta">
+                in <a href="../../category/analytics">analytics</a> &middot; Sun 12 April 2020
+                <br>
+                // tags                     <a class="post-category" href="../../tag/python/">python</a>
+                    <a class="post-category" href="../../tag/pandas/">pandas</a>
+            </p>
+    </header>
+</section><section class="post">
+    <header class="post-header">
+        <a href="../../author/adil-moujahid.html" title="See posts by Adil Moujahid">
+                <img class="avatar" alt="Adil Moujahid" src="http://www.gravatar.com/avatar/2ac2a00f5911cc8234778be41c835e13">
+        </a>
+        <h3><a class="post-title" href="../../posts/2015/03/coursera-data-mining/">Data Mining Coursera for Popular Courses with Python</a></h3>
+            <p class="post-meta"><p>In this tutorial, I will combine Coursera course catalogue together with social media data to assess the popularity of courses. To to this, I will use the Coursera API to retrieve the course catalogue, I will use the sharecount.com API to get social media metrics for each course, and I will use python's <code>pandas</code> library to query and order the courses by popularity. The technique introduced in this tutorial can be leveraged to other use cases that require a popularity ranking system for measuring the relevance of a list of links.</p></p>
+            <p class="post-meta">
+                in <a href="../../category/analytics">analytics</a> &middot; Mon 23 March 2015
+                <br>
+                // tags                     <a class="post-category" href="../../tag/python/">python</a>
+                    <a class="post-category" href="../../tag/pandas/">pandas</a>
+                    <a class="post-category" href="../../tag/api/">api</a>
+            </p>
+    </header>
+</section><section class="post">
+    <header class="post-header">
+        <a href="../../author/adil-moujahid.html" title="See posts by Adil Moujahid">
+                <img class="avatar" alt="Adil Moujahid" src="http://www.gravatar.com/avatar/2ac2a00f5911cc8234778be41c835e13">
+        </a>
+        <h3><a class="post-title" href="../../posts/2014/07/twitter-analytics/">An Introduction to Text Mining using Twitter Streaming API and Python</a></h3>
+            <p class="post-meta"><p>In this tutorial, I will use Twitter data to compare the popularity of 3 programming languages: Python, Javascript and Ruby, and to retrieve links to programming tutorials.</p></p>
+            <p class="post-meta">
+                in <a href="../../category/analytics">analytics</a> &middot; Mon 21 July 2014
+                <br>
+                // tags                     <a class="post-category" href="../../tag/python/">python</a>
+                    <a class="post-category" href="../../tag/pandas/">pandas</a>
+                    <a class="post-category" href="../../tag/text-mining/">text mining</a>
+                    <a class="post-category" href="../../tag/matplotlib/">matplotlib</a>
+                    <a class="post-category" href="../../tag/twitter/">twitter</a>
+                    <a class="post-category" href="../../tag/api/">api</a>
+            </p>
+    </header>
+</section><section class="post">
+    <header class="post-header">
+        <a href="../../author/adil-moujahid.html" title="See posts by Adil Moujahid">
+                <img class="avatar" alt="Adil Moujahid" src="http://www.gravatar.com/avatar/2ac2a00f5911cc8234778be41c835e13">
+        </a>
+        <h3><a class="post-title" href="../../posts/2014/07/baseball-analytics/">Baseball Analytics: An Introduction to Sabermetrics using Python</a></h3>
+            <p class="post-meta"><p>Sabermetrics is the apllication of statistical analysis to baseball data in order to measure in-game activity. In this post, I will use Lahman’s Baseball Database and Python programming language to explain some of the techniques used in Sabermetrics.</p></p>
+            <p class="post-meta">
+                in <a href="../../category/analytics">analytics</a> &middot; Sun 13 July 2014
+                <br>
+                // tags                     <a class="post-category" href="../../tag/python/">python</a>
+                    <a class="post-category" href="../../tag/modelling/">modelling</a>
+                    <a class="post-category" href="../../tag/pandas/">pandas</a>
+            </p>
+    </header>
+</section><div class="pagination-wrapper content-subhead">
+    <div class="pagination">
+        <div class="pagination-left">
+                &nbsp;
+        </div>
+        <span>Page 1 / 1</span>
+        <div class="pagination-right">
+        </div>
+    </div>
+</div><footer class="footer">
+    <p>&copy; Adil Moujahid &ndash;
+        Built with <a href="https://github.com/PurePelicanTheme/pure">Pure Theme</a>
+        for <a href="http://blog.getpelican.com/">Pelican</a>
+    </p>
+</footer>            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-52651211-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+    </script>
+</body>
+
+
+</html>
